@@ -1,0 +1,28 @@
+footer{
+    margin-bottom: 0;
+    background-color: #FAC8D0;
+    text-align: center;
+    border-top: 0.3px solid #9999d2;
+}
+
+.rrss{
+    width: 100%;
+    margin-top: 10px;
+    text-decoration: none;
+}  
+
+a{
+    text-decoration: none;
+    text-align: center;
+}
+i{
+    color: #000;
+    font-size: 28px;
+    width: 50px;
+    padding: 30px 0px;
+    transition: all 0.3s;
+}
+i:hover{
+    color: #9999d2;
+    transform: scale(1.4);
+}

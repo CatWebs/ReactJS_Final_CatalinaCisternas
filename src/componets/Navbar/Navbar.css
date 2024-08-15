@@ -1,0 +1,26 @@
+.navbar {
+    background-color: #FAC8D0;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 90px;
+  }
+
+.navbar-item:hover{
+    color: #9999d2;
+    cursor: pointer;
+}
+
+.navbar-links{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+.navbar-item{
+    list-style: none;
+    margin-right: 20%;
+    color: #000;
+}

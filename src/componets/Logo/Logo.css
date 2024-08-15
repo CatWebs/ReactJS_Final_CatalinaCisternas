@@ -1,0 +1,6 @@
+.container-logo{
+    display: flex;
+    height: 150px;
+    align-items: center;
+    justify-content: center;
+}
