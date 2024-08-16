@@ -17,7 +17,9 @@ function Navbar() {
                 Acrílico
             </Link>
         </ul>
-        <CartWidget />
+        <Link to="/carrito">
+            <CartWidget />
+        </Link>
     </nav>
     <Outlet/>
     </>

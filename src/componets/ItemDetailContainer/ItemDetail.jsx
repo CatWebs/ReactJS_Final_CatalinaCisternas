@@ -1,7 +1,8 @@
 import React from 'react'
+import { useAppContext } from '../Context/Context';
 
 const ItemDetail = ({nombre, precio, id, descripcion, imagen}) =>{
-
+    const { agregarAlCarrito } = useAppContext();
     return (
         <div key={id} className="item-detail-card">
             <div className='item-detail-flex'>
@@ -10,7 +11,7 @@ const ItemDetail = ({nombre, precio, id, descripcion, imagen}) =>{
                 </div>
                 <div className="item-detail-card-body">
                     <h3 className="item-detail-card-title">{nombre}</h3>
-                    <h4>{precio}</h4>
+                    <h4>${precio}</h4>
                     <div className="item-detail-descripcion-container">
                         <div className="item-detail-descripcion">
                             <p>{descripcion}</p>
@@ -18,7 +19,12 @@ const ItemDetail = ({nombre, precio, id, descripcion, imagen}) =>{
                     </div>
                 </div>
             </div>
-            <button className="item-detail-button">Agregar</button>
+            <div className='item-card-footer'>
+                <button>-</button>
+                <p>0</p>
+                <button>+</button>
+            </div>
+            <button className="item-detail-button" onClick={()=> agregarAlCarrito(id)}>Añadir al Carrito</button>
         </div>
     );
 };

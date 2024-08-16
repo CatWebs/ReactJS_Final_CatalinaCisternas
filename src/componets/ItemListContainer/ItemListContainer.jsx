@@ -2,10 +2,18 @@ import { useEffect, useState } from 'react'
 import ItemList from "./ItemList"
 import "./ItemListContainer.css"
 import { useParams } from 'react-router-dom';
+import Loader from '../Loader/Loader';
+import { useAppContext } from '../Context/Context';
 
 
 
-const ItemListContainer = ({ productos }) => {
+const ItemListContainer = () => {
+
+  const {cargarData, productos} = useAppContext();
+ 
+  useEffect(()=>{
+    cargarData();
+  });
 
   const {idCategoria} = useParams()
 
@@ -14,28 +22,19 @@ const ItemListContainer = ({ productos }) => {
 
   useEffect(() =>{
     filtro.length > 0 ? setItems(filtro) : setItems(productos)
-  },[idCategoria]);
+  });
   
   return (
           <>
               {
                   ((productos.length) === 0) ?
-                    <>
-                    <div className="container-pelotas">
-                      <div className="cargando">
-                          <div className="pelotas"></div>
-                          <div className="pelotas"></div>
-                          <div className="pelotas"></div>
-                          <span className="texto-cargando">Cargando...</span>
-                        </div>
-                      </div>
-                    </>
+                      <Loader />
                     :
                       <>
                         <div className='main-store-container'>
                           <h1>Hilados Arañitas</h1>    
                           <h2>Bienvenido a la comunidad de 'Arañitas Tejedoras'</h2>
-                          <ItemList productos={items}  />
+                          <ItemList productos={items}/>
                         </div>
                       </>
               }

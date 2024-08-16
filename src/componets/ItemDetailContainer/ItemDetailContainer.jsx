@@ -2,28 +2,29 @@ import React from 'react';
 import ItemDetail from './ItemDetail';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import "./ItemDetailContainer.css"
+import "./ItemDetailContainer.css";
+import { useAppContext } from '../Context/Context';
 
 
-function ItemDetailContainer({productos}) {
+const ItemDetailContainer = () => {
+
+	const {productos} = useAppContext();
 
 	const { id } = useParams();
-	const [productoSeleccionado, setProductoSeleccionado] = useState([]);
+	const [productoSeleccionado, setProductoSeleccionado] = useState({});
 
 	useEffect(() => {
 		const findProduct = productos.find(el => el.id === parseInt(id));
 		setProductoSeleccionado(findProduct);
-	},[])
+	},[]);
     
 
 	return (
-        <>
-		<div className="itemDetail-container">
+        <div className="itemDetail-container">
 
-            <ItemDetail key={productoSeleccionado.id} id={productoSeleccionado.id} nombre={productoSeleccionado.nombre} precio={productoSeleccionado.precio} imagen={productoSeleccionado.imagen} descripcion={productoSeleccionado.descripcion} tipo={productoSeleccionado.tipo} />
-                       
-        </div>
-        </>
+			<ItemDetail key={productoSeleccionado.id} id={productoSeleccionado.id} nombre={productoSeleccionado.nombre} precio={productoSeleccionado.precio} imagen={productoSeleccionado.imagen} descripcion={productoSeleccionado.descripcion} />
+						
+		</div>
 	)
 }
 
