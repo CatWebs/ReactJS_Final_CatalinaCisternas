@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import ItemList from "./ItemList"
 import "./ItemListContainer.css"
-import { useParams } from 'react-router-dom';
+//import { useParams } from 'react-router-dom';
 import Loader from '../Loader/Loader';
 import { useAppContext } from '../Context/Context';
 

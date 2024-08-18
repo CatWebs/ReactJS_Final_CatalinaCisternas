@@ -1,5 +1,6 @@
 import React from 'react'
 import { useAppContext } from "../Context/Context";
+import "./Cart.css"
 
 const Cart = () => {
   const { carrito/*, crearOrden,  quitarDelCarrito, vaciarCarrito*/ } = useAppContext();
@@ -8,12 +9,37 @@ const Cart = () => {
       crearOrden();
     }*/
    console.log(carrito)
+
+
   return (
     <div className='container-carrito'>
-        <div className='productos-carrito'>
-            <p>aquí iran los productos</p> 
-        </div>
-        <button /*onClick={()=> handleCarrito()}*/>Finalizar Compra</button>
+      {
+        ((carrito.length) === 0) ?
+        <>
+          <h2 className="titulo-carrito-vacio">Tu carrito está vacío</h2>
+        </>
+        :
+        carrito.map((el)=> {
+          return (
+            <>
+              <div className='producto-carrito-header'>
+                <h2>Producto</h2>
+                <h2>Nombre</h2>
+                <h2>Precio</h2>
+                <h2>cantidad</h2>
+              </div>
+              <div className='producto-carrito' key={el.id}>
+                <img src={el.imagen}/>
+                <h4>{el.nombre}</h4>
+                <h4>${el.precio}</h4>
+                <h4>Cantidad: 0</h4>
+              </div>
+            </>
+          )
+        })
+      }
+        <h4 className="total-compra">Total de la compra : 0</h4>
+        <button className="fin-compra" /*onClick={()=> handleCarrito()}*/>Finalizar Compra</button>
     </div>
   )
 }
