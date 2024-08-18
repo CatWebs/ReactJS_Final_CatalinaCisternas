@@ -29,6 +29,7 @@
     margin-bottom: 30px;
     border-radius: 10px;
     padding: 0 20px;
+    flex-wrap: wrap;
 }
 
 .producto-carrito img{
@@ -47,9 +48,15 @@
 
 .total-compra{
     text-align: center;
+    font-size: 32px;
 }
 
 .fin-compra:hover{
     background-color: #9999d2;
     cursor: pointer;
+}
+
+.eliminar-producto-boton{
+    background-color: #FAC8D0;
+    color: red;
 }
