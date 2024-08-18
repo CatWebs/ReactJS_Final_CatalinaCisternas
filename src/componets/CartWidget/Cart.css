@@ -44,6 +44,7 @@
     border-radius: 10px;
     border-color: transparent;
     margin: 30px auto;
+    width: 300px;
 }
 
 .total-compra{
@@ -59,4 +60,11 @@
 .eliminar-producto-boton{
     background-color: #FAC8D0;
     color: red;
+}
+
+.cart-footer{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 20px;
 }

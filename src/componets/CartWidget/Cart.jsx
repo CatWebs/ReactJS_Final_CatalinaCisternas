@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link }from 'react-router-dom'
 import { useAppContext } from "../Context/Context";
 import { useState } from 'react'
 import "./Cart.css"
@@ -22,6 +23,9 @@ const Cart = () => {
         ((carrito.length) === 0) ?
         <>
           <h2 className="titulo-carrito-vacio">Tu carrito está vacío</h2>
+          <Link to={"/"}>
+            <button className="fin-compra">Volver</button>
+          </Link>
         </>
         :
         carrito.map((el)=> {
@@ -30,8 +34,8 @@ const Cart = () => {
               <div className='producto-carrito-header'>
                 <h2>Producto</h2>
                 <h2>Nombre</h2>
+                <h2>Cantidad</h2>
                 <h2>Precio</h2>
-                <h2>cantidad</h2>
               </div>
               <div className='producto-carrito' key={el.id}>
                 <img src={el.imagen}/>
@@ -42,13 +46,15 @@ const Cart = () => {
                 <button className='boton-accion eliminar-producto-boton' /*onClick={()=> quitarDelCarrito()}*/>Eliminar Producto</button>
                 <h4>${el.precio}</h4>
               </div>
+              <h4 className="total-compra">Total de la compra : 0</h4>
+              <div className='cart-footer'>
+                <button className="fin-compra" /*onClick={()=> handleCarrito()}*/>Finalizar Compra</button>
+                <button className="fin-compra" /*onClick={()=> vaciarCarrito()}*/>Vaciar Carrito</button>
+              </div>
             </>
           )
         })
-      }
-        <h4 className="total-compra">Total de la compra : 0</h4>
-        <button className="fin-compra" /*onClick={()=> handleCarrito()}*/>Finalizar Compra</button>
-        <button className="fin-compra" /*onClick={()=> vaciarCarrito()}*/>Vaciar Carrito</button>
+      }       
     </div>
   )
 }
