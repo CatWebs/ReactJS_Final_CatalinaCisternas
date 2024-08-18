@@ -8,7 +8,6 @@
     border-radius: 10px;
     padding: 16px;
     margin: 16px;
-    
 }
 
 .item-detail-flex{
@@ -56,10 +55,48 @@
     font-weight: bolder;
     border-radius: 10px;
     border-color: transparent;
-    margin: auto;
+    margin: 0 auto;
 }
 
 .item-detail-button:hover{
     background-color: #9999d2;
+    cursor: pointer;
+}
+
+.container-contador{
+ width: 300px;
+ margin-bottom: 15px;
+}
+
+.botones-accion{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.boton-accion{
+    padding: 10px 25px;
+    border-color: #9999d2;
+    border-radius: 10px;
+}
+
+.boton-accion:hover{
+    border-color: #FAC8D0;
+}
+
+.sin-stock{
+    color: #FF0000;
+    text-align: center;
+}
+
+.item-detail-volver{
+    background-color: transparent;
+    padding: 12px;
+    border: none;
+    font-size:20px;
+}
+
+.item-detail-volver:hover{
+    color: #9999d2;
     cursor: pointer;
 }

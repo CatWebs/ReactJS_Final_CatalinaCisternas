@@ -1,13 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { useAppContext } from '../Context/Context';
-
 
 const Item = ({nombre, precio, id, descripcion, imagen}) =>{
 
-    const { agregarAlCarrito } = useAppContext();
     return (
-        <div className="item-card">
+        <div key={id} className="item-card">
             <div className='container-img'>
                 <img className="item-card-img" src={imagen} alt={descripcion}/>
             </div>
@@ -18,12 +15,6 @@ const Item = ({nombre, precio, id, descripcion, imagen}) =>{
                     <button className="item-button">Ver más</button>
                 </Link>
             </div>
-            <div className='item-card-footer'>
-                <button>-</button>
-                <p>0</p>
-                <button>+</button>
-            </div>
-            <button className="item-button" onClick={()=> agregarAlCarrito(id)}>Añadir al Carrito</button>
         </div>
     );
 };

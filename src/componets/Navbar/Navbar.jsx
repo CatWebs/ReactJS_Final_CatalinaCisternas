@@ -10,14 +10,14 @@ function Navbar() {
             <Link to={"/"} className="navbar-item">
                 Inicio
             </Link>
-            <Link to={"/productos/algodon"} className="navbar-item">
+            <Link to={"/algodon"} className="navbar-item">
                 Algodón
             </Link>
-            <Link to={"/productos/acrilico"} className="navbar-item">
+            <Link to={"/acrilico"} className="navbar-item">
                 Acrílico
             </Link>
         </ul>
-        <Link to="/carrito">
+        <Link to="/cart">
             <CartWidget />
         </Link>
     </nav>

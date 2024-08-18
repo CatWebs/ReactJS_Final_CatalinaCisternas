@@ -5,7 +5,8 @@ const productos = [
         precio: "1400",
         descripcion: "Con su característica semi suave y perteneciente a la categoría de Hilos de Verano, este ovillo te brinda una composición 100% algodón, ideal para tus creaciones. Con un gramaje de 100 gramos y un grosor medio, sus 3 hebras se entrelazan con elegancia, ofreciéndote alrededor de 330 metros para tejer tus visiones. Utiliza agujas de tamaño N° 2-3.5 y dale forma a tus ideas con ALGODÓN COLOR.",
         imagen: "../img/algodon/algodon-color-calipso.jpg",
-        tipo: "algodon"
+        tipo: "algodon",
+        stock: 10
     },
     {
         id: 2,
@@ -13,7 +14,8 @@ const productos = [
         precio: "1250",
         descripcion: "Con su característica semi suave y perteneciente a la categoría de Hilos de Verano, este ovillo te brinda una composición 100% algodón, ideal para tus creaciones. Con un gramaje de 100 gramos y un grosor medio, sus 3 hebras se entrelazan con elegancia, ofreciéndote alrededor de 330 metros para tejer tus visiones. Utiliza agujas de tamaño N° 2-3.5 y dale forma a tus ideas con ALGODÓN COLOR.",
         imagen: "../img/algodon/algodon-color-cafe-moro.jpg",
-        tipo: "algodon"
+        tipo: "algodon",
+        stock: 10
     },
     {
         id: 3,
@@ -21,7 +23,8 @@ const productos = [
         precio: "1400",
         descripcion: "Con su característica semi suave y perteneciente a la categoría de Hilos de Verano, este ovillo te brinda una composición 100% algodón, ideal para tus creaciones. Con un gramaje de 100 gramos y un grosor medio, sus 3 hebras se entrelazan con elegancia, ofreciéndote alrededor de 330 metros para tejer tus visiones. Utiliza agujas de tamaño N° 2-3.5 y dale forma a tus ideas con ALGODÓN COLOR.",
         imagen: "../img/algodon/algodon-color-esmeralda.jpg",
-        tipo: "algodon"
+        tipo: "algodon",
+        stock: 10
     },
     {
         id: 4,
@@ -29,7 +32,8 @@ const productos = [
         precio: "1000",
         descripcion: "Con su característica semi suave y perteneciente a la categoría de Hilos de Verano, este ovillo te brinda una composición 100% algodón, ideal para tus creaciones. Con un gramaje de 100 gramos y un grosor medio, sus 3 hebras se entrelazan con elegancia, ofreciéndote alrededor de 330 metros para tejer tus visiones. Utiliza agujas de tamaño N° 2-3.5 y dale forma a tus ideas con ALGODÓN COLOR.",
         imagen: "../img/algodon/algodon-color-negro.jpg",
-        tipo: "algodon"
+        tipo: "algodon",
+        stock: 10
     },
     {
         id: 5,
@@ -37,7 +41,8 @@ const productos = [
         precio: "1250",
         descripcion: "Con su característica semi suave y perteneciente a la categoría de Hilos de Verano, este ovillo te brinda una composición 100% algodón, ideal para tus creaciones. Con un gramaje de 100 gramos y un grosor medio, sus 3 hebras se entrelazan con elegancia, ofreciéndote alrededor de 330 metros para tejer tus visiones. Utiliza agujas de tamaño N° 2-3.5 y dale forma a tus ideas con ALGODÓN COLOR.",
         imagen: "../img/algodon/algodon-color-azafran.jpg",
-        tipo: "algodon"
+        tipo: "algodon",
+        stock: 10
     },
     {
         id: 6,
@@ -45,7 +50,8 @@ const productos = [
         precio: "1250",
         descripcion: "Con su característica semi suave y perteneciente a la categoría de Hilos de Verano, este ovillo te brinda una composición 100% algodón, ideal para tus creaciones. Con un gramaje de 100 gramos y un grosor medio, sus 3 hebras se entrelazan con elegancia, ofreciéndote alrededor de 330 metros para tejer tus visiones. Utiliza agujas de tamaño N° 2-3.5 y dale forma a tus ideas con ALGODÓN COLOR.",
         imagen: "../img/algodon/algodon-color-perla.jpg",
-        tipo: "algodon"
+        tipo: "algodon",
+        stock: 10
     },
     {
         id: 7,
@@ -53,7 +59,8 @@ const productos = [
         precio: "1400",
         descripcion: "Con su característica semi suave y perteneciente a la categoría de Hilos de Verano, este ovillo te brinda una composición 100% algodón, ideal para tus creaciones. Con un gramaje de 100 gramos y un grosor medio, sus 3 hebras se entrelazan con elegancia, ofreciéndote alrededor de 330 metros para tejer tus visiones. Utiliza agujas de tamaño N° 2-3.5 y dale forma a tus ideas con ALGODÓN COLOR.",
         imagen: "../img/algodon/algodon-color-rubi.jpg",
-        tipo: "algodon"
+        tipo: "algodon",
+        stock: 10
     },
     {
         id: 8,
@@ -61,7 +68,8 @@ const productos = [
         precio: "1400",
         descripcion: "Con su característica semi suave y perteneciente a la categoría de Hilos de Verano, este ovillo te brinda una composición 100% algodón, ideal para tus creaciones. Con un gramaje de 100 gramos y un grosor medio, sus 3 hebras se entrelazan con elegancia, ofreciéndote alrededor de 330 metros para tejer tus visiones. Utiliza agujas de tamaño N° 2-3.5 y dale forma a tus ideas con ALGODÓN COLOR.",
         imagen: "../img/algodon/algodon-color-verde-musgo.jpg",
-        tipo: "algodon"
+        tipo: "algodon",
+        stock: 10
     },
     {
         id: 9,
@@ -69,7 +77,8 @@ const productos = [
         precio: "1250",
         descripcion: "Con su característica semi suave y perteneciente a la categoría de Hilos de Verano, este ovillo te brinda una composición 100% algodón, ideal para tus creaciones. Con un gramaje de 100 gramos y un grosor medio, sus 3 hebras se entrelazan con elegancia, ofreciéndote alrededor de 330 metros para tejer tus visiones. Utiliza agujas de tamaño N° 2-3.5 y dale forma a tus ideas con ALGODÓN COLOR.",
         imagen: "../img/algodon/algodon-color-verde-pino.jpg",
-        tipo: "algodon"
+        tipo: "algodon",
+        stock: 10
     },
     {
         id: 10,
@@ -77,7 +86,8 @@ const productos = [
         precio: "1400",
         descripcion: "Con su característica semi suave y perteneciente a la categoría de Hilos de Verano, este ovillo te brinda una composición 100% algodón, ideal para tus creaciones. Con un gramaje de 100 gramos y un grosor medio, sus 3 hebras se entrelazan con elegancia, ofreciéndote alrededor de 330 metros para tejer tus visiones. Utiliza agujas de tamaño N° 2-3.5 y dale forma a tus ideas con ALGODÓN COLOR.",
         imagen: "../img/algodon/algodon-color-violeta.jpg",
-        tipo: "algodon"
+        tipo: "algodon",
+        stock: 10
     },
     {
         id: 11,
@@ -85,7 +95,8 @@ const productos = [
         precio: "1390",
         descripcion: "Composición 100% acrílico para una suavidad inigualable. Con un gramaje de 100 gramos y un grosor fino, cuenta con 2 hebras que se entrelazan delicadamente. Con aproximadamente 375 metros de longitud, este hilo versátil se adapta a agujas de tamaño N° 2-3. Teje tus sueños de verano con IBIS.",
         imagen: "../img/acrilico/ibis-calipso.jpg",
-        tipo: "acrilico"
+        tipo: "acrilico",
+        stock: 10
     },
     {
         id: 12,
@@ -93,7 +104,8 @@ const productos = [
         precio: "1450",
         descripcion: "Composición 100% acrílico para una suavidad inigualable. Con un gramaje de 100 gramos y un grosor fino, cuenta con 2 hebras que se entrelazan delicadamente. Con aproximadamente 375 metros de longitud, este hilo versátil se adapta a agujas de tamaño N° 2-3. Teje tus sueños de verano con IBIS.",
         imagen: "../img/acrilico/ibis-coral.jpg",
-        tipo: "acrilico"
+        tipo: "acrilico",
+        stock: 10
     },
     {
         id: 13,
@@ -101,7 +113,8 @@ const productos = [
         precio: "1200",
         descripcion: "Composición 100% acrílico para una suavidad inigualable. Con un gramaje de 100 gramos y un grosor fino, cuenta con 2 hebras que se entrelazan delicadamente. Con aproximadamente 375 metros de longitud, este hilo versátil se adapta a agujas de tamaño N° 2-3. Teje tus sueños de verano con IBIS.",
         imagen: "../img/acrilico/ibis-crudo.jpg",
-        tipo: "acrilico"
+        tipo: "acrilico",
+        stock: 10
     },
     {
         id: 14,
@@ -109,7 +122,8 @@ const productos = [
         precio: "1290",
         descripcion: "Composición 100% acrílico para una suavidad inigualable. Con un gramaje de 100 gramos y un grosor fino, cuenta con 2 hebras que se entrelazan delicadamente. Con aproximadamente 375 metros de longitud, este hilo versátil se adapta a agujas de tamaño N° 2-3. Teje tus sueños de verano con IBIS.",
         imagen: "../img/acrilico/ibis-hibisco.jpg",
-        tipo: "acrilico"
+        tipo: "acrilico",
+        stock: 10
     },
     {
         id: 15,
@@ -117,7 +131,8 @@ const productos = [
         precio: "1390",
         descripcion: "Composición 100% acrílico para una suavidad inigualable. Con un gramaje de 100 gramos y un grosor fino, cuenta con 2 hebras que se entrelazan delicadamente. Con aproximadamente 375 metros de longitud, este hilo versátil se adapta a agujas de tamaño N° 2-3. Teje tus sueños de verano con IBIS.",
         imagen: "../img/acrilico/ibis-mar-egeo.jpg",
-        tipo: "acrilico"
+        tipo: "acrilico",
+        stock: 10
     },
     {
         id: 16,
@@ -125,7 +140,8 @@ const productos = [
         precio: "1400",
         descripcion: "Composición 100% acrílico para una suavidad inigualable. Con un gramaje de 100 gramos y un grosor fino, cuenta con 2 hebras que se entrelazan delicadamente. Con aproximadamente 375 metros de longitud, este hilo versátil se adapta a agujas de tamaño N° 2-3. Teje tus sueños de verano con IBIS.",
         imagen: "../img/acrilico/ibis-mostaza.jpg",
-        tipo: "acrilico"
+        tipo: "acrilico",
+        stock: 10
     },
     {
         id: 17,
@@ -133,7 +149,8 @@ const productos = [
         precio: "1200",
         descripcion: "Composición 100% acrílico para una suavidad inigualable. Con un gramaje de 100 gramos y un grosor fino, cuenta con 2 hebras que se entrelazan delicadamente. Con aproximadamente 375 metros de longitud, este hilo versátil se adapta a agujas de tamaño N° 2-3. Teje tus sueños de verano con IBIS.",
         imagen: "../img/acrilico/ibis-naranja.jpg",
-        tipo: "acrilico"
+        tipo: "acrilico",
+        stock: 10
     },
     {
         id: 18,
@@ -141,7 +158,8 @@ const productos = [
         precio: "1350",
         descripcion: "Composición 100% acrílico para una suavidad inigualable. Con un gramaje de 100 gramos y un grosor fino, cuenta con 2 hebras que se entrelazan delicadamente. Con aproximadamente 375 metros de longitud, este hilo versátil se adapta a agujas de tamaño N° 2-3. Teje tus sueños de verano con IBIS.",
         imagen: "../img/acrilico/ibis-pistacho.jpg",
-        tipo: "acrilico"
+        tipo: "acrilico",
+        stock: 10
     },
     {
         id: 19,
@@ -149,7 +167,8 @@ const productos = [
         precio: "1090",
         descripcion: "Composición 100% acrílico para una suavidad inigualable. Con un gramaje de 100 gramos y un grosor fino, cuenta con 2 hebras que se entrelazan delicadamente. Con aproximadamente 375 metros de longitud, este hilo versátil se adapta a agujas de tamaño N° 2-3. Teje tus sueños de verano con IBIS.",
         imagen: "../img/acrilico/ibis-terracota.jpg",
-        tipo: "acrilico"
+        tipo: "acrilico",
+        stock: 10
     },
     {
         id: 20,
@@ -157,7 +176,8 @@ const productos = [
         precio: "1400",
         descripcion: "Composición 100% acrílico para una suavidad inigualable. Con un gramaje de 100 gramos y un grosor fino, cuenta con 2 hebras que se entrelazan delicadamente. Con aproximadamente 375 metros de longitud, este hilo versátil se adapta a agujas de tamaño N° 2-3. Teje tus sueños de verano con IBIS.",
         imagen: "../img/acrilico/ibis-uva.jpg",
-        tipo: "acrilico"
+        tipo: "acrilico",
+        stock: 10
     }
 
 ];
