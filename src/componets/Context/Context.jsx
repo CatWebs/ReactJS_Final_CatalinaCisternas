@@ -7,13 +7,13 @@ import { addDoc, collection, getDocs, getFirestore } from "firebase/firestore";
 
 // Uso de Firebase
 const firebaseConfig = {
-    apiKey: "AIzaSyAM3Xfb9GWV1oA6Mbb72gCLpKU4bgiTZp0",
-    authDomain: "productos-cat-cisternas.firebaseapp.com",
-    projectId: "productos-cat-cisternas",
-    storageBucket: "productos-cat-cisternas.appspot.com",
-    messagingSenderId: "1074581011662",
-    appId: "1:1074581011662:web:f709f074832784251c649f"
-};
+    apiKey: "AIzaSyBiwC_RGyLQx1g24bIJos9tBvWmj6-vqnU",
+    authDomain: "cat-cisternas-react.firebaseapp.com",
+    projectId: "cat-cisternas-react",
+    storageBucket: "cat-cisternas-react.appspot.com",
+    messagingSenderId: "777514656221",
+    appId: "1:777514656221:web:433c0258588f9f5f3e1634"
+  };
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
@@ -39,6 +39,7 @@ const ordersCollection = collection(db, "ordenes")
             getDocs(productsCollection).then(snapshot => {
                let arrayProductos = snapshot.docs.map(el => el.data());
                 setProductos(arrayProductos);
+                console.log(productos)
             }).catch(err => console.error(err));
         };
 

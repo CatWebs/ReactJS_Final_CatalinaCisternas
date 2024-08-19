@@ -13,7 +13,7 @@ const ItemListContainer = () => {
   //const {idCategoria} = useParams()
   useEffect(()=>{
     cargarData();
-  });
+  },[]);
 
   
 
