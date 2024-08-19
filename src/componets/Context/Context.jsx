@@ -39,7 +39,6 @@ const ordersCollection = collection(db, "ordenes")
             getDocs(productsCollection).then(snapshot => {
                let arrayProductos = snapshot.docs.map(el => el.data());
                 setProductos(arrayProductos);
-                console.log(productos)
             }).catch(err => console.error(err));
         };
 
@@ -47,11 +46,9 @@ const ordersCollection = collection(db, "ordenes")
         function agregarAlCarrito(id,contador) {
             const carritoAuxiliar = [...carrito];
             const productoAAgregar = productos.find(el => el.id === id);
-            console.log(total, cantidadTotalCarrito)
-            
+                   
             // Filtrado
             if(carritoAuxiliar.some(el => el.id === id)){
-                console.log("hay una coincidencia") 
                 const productoAAumentar = carritoAuxiliar.find(el=>el.id === id)
                 productoAAumentar.cantidad += 1;
 

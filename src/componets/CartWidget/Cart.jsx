@@ -10,11 +10,6 @@ const Cart = () => {
     const handleCarrito = () =>{
       crearOrden();
     }
-    /*
-    const [productoCantidadCarrito, setProductoCantidadCarrito] = useState(1)
-    const agregar = () => setProductoCantidad(productoCantidad + 1)
-    const quitar = () => setProductoCantidad(productoCantidad - 1)
-    */
 
     return (
       <div className='container-carrito'>
@@ -26,9 +21,9 @@ const Cart = () => {
                 <div className='producto-carrito' key={el.id}>
                   <img src={el.imagen}/>
                   <h4>{el.nombre}</h4>
-                  <button className="boton-accion" /*onClick={quitar}*/ disabled={el.cantidad < 2}>-</button>
+                  {/*<button className="boton-accion" /*onClick={quitar}*/ /*disabled={el.cantidad < 2}>-</button>*/}
                   <h3>{el.cantidad}</h3>
-                  <button className="boton-accion" /*onClick={agregar}*/ disabled={el.cantidad === el.stock}>+</button>
+                  {/*<button className="boton-accion" /*onClick={agregar}*/ /*disabled={el.cantidad === el.stock}>+</button>*/}
                   <button className='boton-accion eliminar-producto-boton' onClick={()=> quitarDelCarrito(el.id,el.precio,el.cantidad)}>Eliminar Producto</button>
                   <h4>${el.precio}</h4>
                 </div>

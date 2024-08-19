@@ -10,8 +10,6 @@ import { ContextProvider } from './componets/Context/Context'
 
 function App() {
 
-
-
   return (
     
     <BrowserRouter>
@@ -20,11 +18,11 @@ function App() {
           <Routes>
             <Route exact path='/' element={<ItemListContainer />}/>
               
-            {/*<Route exact path='/:idCategoria' element={<ItemListContainer />}/>*/}
+            <Route exact path='/:idCategoria' element={<ItemListContainer />}/>
 
             <Route exact path='/detalle/:id' element={<ItemDetailContainer />}/>
 
-            <Route exact path='*' element={<ErrorPage/>}/>
+            <Route path='*' element={<ErrorPage/>}/>
 
             <Route path='/cart' element={<Cart />}/>
                 
