@@ -13,24 +13,26 @@ function App() {
 
 
   return (
-    <ContextProvider>
-      <BrowserRouter>
+    
+    <BrowserRouter>
+      <ContextProvider>
           <Header />
           <Routes>
             <Route exact path='/' element={<ItemListContainer />}/>
               
-            <Route exact path='/:idCategoria' element={<ItemListContainer />}/>
+            {/*<Route exact path='/:idCategoria' element={<ItemListContainer />}/>*/}
 
             <Route exact path='/detalle/:id' element={<ItemDetailContainer />}/>
 
-            <Route path='*' element={<ErrorPage/>}/>
+            <Route exact path='*' element={<ErrorPage/>}/>
 
             <Route path='/cart' element={<Cart />}/>
                 
           </Routes>
           <Footer/>
-      </BrowserRouter>
-    </ContextProvider>
+      </ContextProvider>
+    </BrowserRouter>
+    
   )
 }
 

@@ -11,7 +11,7 @@ const Cart = () => {
       crearOrden();
     }
     /*
-    const [productoCantidad, setProductoCantidad] = useState(1)
+    const [productoCantidadCarrito, setProductoCantidadCarrito] = useState(1)
     const agregar = () => setProductoCantidad(productoCantidad + 1)
     const quitar = () => setProductoCantidad(productoCantidad - 1)
     */
@@ -19,14 +19,7 @@ const Cart = () => {
     return (
       <div className='container-carrito'>
         {
-          ((carrito.length) === 0) ?
-          <>
-            <h2 className="titulo-carrito-vacio">Tu carrito está vacío</h2>
-            <Link to={"/"}>
-              <button className="fin-compra">Volver</button>
-            </Link>
-          </>
-          :
+          ((carrito.length) !== 0) ?
           carrito.map((el)=> {
             return (
               <>
@@ -42,6 +35,13 @@ const Cart = () => {
               </>
             )
           })
+          :
+          <>
+            <h2 className="titulo-carrito-vacio">Tu carrito está vacío</h2>
+            <Link to={"/"}>
+              <button className="fin-compra">Volver</button>
+            </Link>
+          </>
         }   
         <h4 className="total-compra" hidden={carrito.length === 0}>Total de la compra : ${total}</h4>
         <div className='cart-footer'>
