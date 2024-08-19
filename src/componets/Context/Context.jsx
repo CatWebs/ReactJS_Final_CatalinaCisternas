@@ -2,15 +2,6 @@ import { createContext, useContext, useState} from "react";
 //import fetchData from "../../fetchData";
 import Swal from "sweetalert2";
 
-/*
-PENDIENTES:
-1. Menú -> Filtro por productos
-OK 2. No repetir objetos en el carrito
-3. Que cada item tenga su propia cantidad y que el contador dependa de cada item (por ahora al agregar una unidad se le agrega a todos los items)
-4. Sumar los precios totales
-5. Si es posible hacer formulario
-*/
-
 import { initializeApp } from "firebase/app";
 import { addDoc, collection, getDocs, getFirestore } from "firebase/firestore";
 
@@ -42,7 +33,7 @@ const ordersCollection = collection(db, "ordenes")
         const [carrito, setCarrito] = useState([]);
         const [total, setTotal] = useState(0);
         const [cantidadTotalCarrito, setCantidadTotalCarrito] = useState(0);
-
+   
         // Cargar Data
         function cargarData() {
             getDocs(productsCollection).then(snapshot => {
@@ -113,7 +104,7 @@ const ordersCollection = collection(db, "ordenes")
         }
 
     // Quitar del carrito
-        function quitarDelCarrito(id) {
+        function quitarDelCarrito(id,precio,cantidad) {
             Swal.fire({
                 title: "Estás seguro?",
                 text: "Tu producto será eliminado",
@@ -125,6 +116,9 @@ const ordersCollection = collection(db, "ordenes")
                 cancelButtonText: "Cancelar"
             }).then((result) => {
                 if (result.isConfirmed) {
+                    setCantidadTotalCarrito(cantidadTotalCarrito - cantidad)
+                    setTotal(total - (precio * cantidad))
+
                     let carritoAuxiliar = [...carrito].filter(el => el.id !== id);
 
                     setCarrito(carritoAuxiliar);
@@ -152,6 +146,8 @@ const ordersCollection = collection(db, "ordenes")
                 cancelButtonText: "Cancelar"
             }).then((result) => {
                 if (result.isConfirmed) {
+                    setTotal(0);
+                    setCantidadTotalCarrito(0);
                     setCarrito([]);
                     Swal.fire({
                         title: "Carrito Eliminado",
@@ -163,7 +159,7 @@ const ordersCollection = collection(db, "ordenes")
         }
  
     return(
-        <AppContext.Provider value={{cantidadTotalCarrito,total, productos,setProductos,carrito,agregarAlCarrito, cargarData, crearOrden, quitarDelCarrito, vaciarCarrito}}> 
+        <AppContext.Provider value={{ cantidadTotalCarrito,total, productos,setProductos,carrito,agregarAlCarrito, cargarData, crearOrden, quitarDelCarrito, vaciarCarrito}}> 
             {props.children}
         </AppContext.Provider>
     )

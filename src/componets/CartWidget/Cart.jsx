@@ -35,8 +35,8 @@ const Cart = () => {
                 <h4>{el.nombre}</h4>
                 <button className="boton-accion" /*onClick={quitar}*/ disabled={el.cantidad < 2}>-</button>
                 <h3>{el.cantidad}</h3>
-                <button className="boton-accion" /*onClick={agregar}*/ disabled={el.cantidad === 10 /*stock*/}>+</button>
-                <button className='boton-accion eliminar-producto-boton' onClick={()=> quitarDelCarrito(el.id)}>Eliminar Producto</button>
+                <button className="boton-accion" /*onClick={agregar}*/ disabled={el.cantidad === el.stock}>+</button>
+                <button className='boton-accion eliminar-producto-boton' onClick={()=> quitarDelCarrito(el.id,el.precio,el.cantidad)}>Eliminar Producto</button>
                 <h4>${el.precio}</h4>
               </div>
             </>
