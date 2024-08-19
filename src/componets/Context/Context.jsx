@@ -50,7 +50,7 @@ const ordersCollection = collection(db, "ordenes")
         };
 
         
-        function agregarAlCarrito(id) {
+        function agregarAlCarrito(id,contador) {
             const carritoAuxiliar = [...carrito];
             const productoAAgregar = productos.find(el => el.id === id);
             
@@ -61,6 +61,7 @@ const ordersCollection = collection(db, "ordenes")
                 productoAAumentar.cantidad += 1;
                 console.log("producto a aumentar"+productoAAumentar.cantidad)
             }else{
+                productoAAgregar.cantidad = contador;
                 carritoAuxiliar.push(productoAAgregar);
             }
             
