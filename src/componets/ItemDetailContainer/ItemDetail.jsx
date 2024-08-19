@@ -1,9 +1,14 @@
 import React from 'react'
-import ItemCount from './ItemCount'
+//import ItemCount from './ItemCount'
 import { Link } from 'react-router-dom';
 
-const ItemDetail = ({nombre, precio, id, descripcion, imagen, stock}) =>{
-    console.log(id)
+import { useAppContext } from '../Context/Context';
+
+
+const ItemDetail = ({nombre, precio, id, descripcion, imagen}) =>{
+
+    const { agregarAlCarrito } = useAppContext();
+
     return (
         <div key={id} className="item-detail-card">
             <Link to="/">
@@ -24,7 +29,8 @@ const ItemDetail = ({nombre, precio, id, descripcion, imagen, stock}) =>{
                 </div>
             </div>
             <div className='item-card-footer'>
-                <ItemCount stock={stock} id={id}/> 
+                {/*<ItemCount stock={stock} id={id}/>*/} 
+                <button className="item-detail-button" onClick={()=> agregarAlCarrito(id)}>Añadir al Carrito</button>
             </div>
         </div>
     );

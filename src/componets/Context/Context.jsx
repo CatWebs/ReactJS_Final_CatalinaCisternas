@@ -2,6 +2,15 @@ import { createContext, useContext, useState} from "react";
 //import fetchData from "../../fetchData";
 import Swal from "sweetalert2";
 
+/*
+PENDIENTES:
+1. Menú -> Filtro por productos
+OK 2. No repetir objetos en el carrito
+3. Que cada item tenga su propia cantidad y que el contador dependa de cada item (por ahora al agregar una unidad se le agrega a todos los items)
+4. Sumar los precios totales
+5. Si es posible hacer formulario
+*/
+
 import { initializeApp } from "firebase/app";
 import { addDoc, collection, getDocs, getFirestore } from "firebase/firestore";
 
@@ -34,102 +43,114 @@ const ordersCollection = collection(db, "ordenes")
 
 
         function cargarData() {
-            /*fetchData()
-            .then(response => {
-            setProductos(response);
-            })
-            .catch(err => console.error(err));*/
-
             getDocs(productsCollection).then(snapshot => {
                let arrayProductos = snapshot.docs.map(el => el.data());
                 setProductos(arrayProductos);
             }).catch(err => console.error(err));
         };
 
+        
         function agregarAlCarrito(id) {
             const carritoAuxiliar = [...carrito];
             const productoAAgregar = productos.find(el => el.id === id);
-            carritoAuxiliar.push(productoAAgregar);
+            
+
+            if(carritoAuxiliar.some(el => el.id === id)){
+                console.log("hay una coincidencia") 
+                const productoAAumentar = carritoAuxiliar.find(el=>el.id === id)
+                productoAAumentar.cantidad += 1;
+                console.log("producto a aumentar"+productoAAumentar.cantidad)
+            }else{
+                carritoAuxiliar.push(productoAAgregar);
+            }
+            
+            console.log(carritoAuxiliar)
             setCarrito(carritoAuxiliar);
             Swal.fire({
                 title: "Éxito",
                 text: `Agregaste ${productoAAgregar.nombre} a tu carrito`,
                 icon: "success"
             })
+            console.log(carrito)
         }
     
     // Crear Orden
-    function crearOrden(){
-       
-        const nuevaOrden = {
-            nombre: "Catalina Cisternas",
-            telefono: 98712532,
-            mail: "cata@coder.com",
-            productos: carrito,
-        };
+        function crearOrden(){
+        
+            const nuevaOrden = {
+                nombre: "Catalina Cisternas",
+                telefono: 98712532,
+                mail: "cata@coder.com",
+                productos: carrito,
+            };
 
-        addDoc(ordersCollection, nuevaOrden).then(response => {
-            Swal.fire({
-                title: "Listo",
-                text: `Tu orden se ha generado correctamente con el id ${response.id}`,
-                icon: "success"
-            });
-            setCarrito([]);
-        }).catch(err => {
-            alert("Algo salió mal, intente más tarde");
-            console.error(err);
-        });
-    }
-
-    // Quitar del carrito
-    function quitarDelCarrito(id) {
-        Swal.fire({
-            title: "Estás seguro?",
-            text: "Tu producto será eliminado",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Eliminar",
-            cancelButtonText: "Cancelar"
-        }).then((result) => {
-            if (result.isConfirmed) {
-                let carritoAuxiliar = [...carrito].filter(el => el.id !== id);
-
-                setCarrito(carritoAuxiliar);
-
+            addDoc(ordersCollection, nuevaOrden).then(response => {
                 Swal.fire({
-                    title: "Eliminado",
-                    text: "Tu producto fue removido correctamente del carrito",
+                    title: "Listo",
+                    text: `Tu orden se ha generado correctamente con el id ${response.id}`,
                     icon: "success"
                 });
-            }
-        });
-    }
+                setCarrito([]);
+            }).catch(err => {
+                alert("Algo salió mal, intente más tarde");
+                console.error(err);
+            });
+        }
+
+    // Quitar del carrito
+        function quitarDelCarrito(id) {
+            Swal.fire({
+                title: "Estás seguro?",
+                text: "Tu producto será eliminado",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Eliminar",
+                cancelButtonText: "Cancelar"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    let carritoAuxiliar = [...carrito].filter(el => el.id !== id);
+
+                    setCarrito(carritoAuxiliar);
+
+                    Swal.fire({
+                        title: "Eliminado",
+                        text: "Tu producto fue removido correctamente del carrito",
+                        icon: "success"
+                    });
+                }
+            });
+        }
 
     // Vaciar Carrito
 
-    function vaciarCarrito(){
-        Swal.fire({
-            title: "Estás seguro?",
-            text: "Todos los productos de tu carrito serán eliminados",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Eliminar",
-            cancelButtonText: "Cancelar"
-        }).then((result) => {
-            if (result.isConfirmed) {
-                setCarrito([]);
-                Swal.fire({
-                    title: "Carrito Eliminado",
-                    text: "Se eliminaron todos los productos de tu carrito",
-                    icon: "success"
-                });
-            }
-        });
-    }
+        function vaciarCarrito(){
+            Swal.fire({
+                title: "Estás seguro?",
+                text: "Todos los productos de tu carrito serán eliminados",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Eliminar",
+                cancelButtonText: "Cancelar"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    setCarrito([]);
+                    Swal.fire({
+                        title: "Carrito Eliminado",
+                        text: "Se eliminaron todos los productos de tu carrito",
+                        icon: "success"
+                    });
+                }
+            });
+        }
+
+    // Totales
+
+    //const [total, setTotal] = useState(0);
+    //const [totalProductos, setTotalProductos] = useState(0);
 
  
     return(
@@ -138,35 +159,4 @@ const ordersCollection = collection(db, "ordenes")
         </AppContext.Provider>
     )
 }
-
-
-
-
-
-
-
-//       getDocs(productsCollection).then(snapshot => {
-//            let arrayProductos = snapshot.docs.map(el => el.data());
-//            setProductos(arrayProductos);
-//        }).catch(err => console.error(err));
-    
-
-    //Debe ser reemplazada por la de arriba
-        /*function cargarData() {
-            fetchData()
-            .then(response => {
-              setProductos(response);
-            })
-            .catch(err => console.error(err));
-        };*/    
-
-
-//agregarAlCarrito(id)
-    /*function agregarAlCarrito(id) {
-        let carritoAuxiliar = [];
-        const productoAAgregar = productos.find(el => el.id === id);
-        carritoAuxiliar.push(productoAAgregar);
-        setCarrito(carritoAuxiliar);
-        console.log(carrito)
-    }*/
     

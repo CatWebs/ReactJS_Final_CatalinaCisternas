@@ -1,13 +1,12 @@
 import React from 'react'
 import { useState } from 'react'
-import { useAppContext } from '../Context/Context';
+
 
 const ItemCount = ({stock, id}) => {
   console.log(id)
     const [contador, setContador] = useState(1)
     const sumar = () => setContador(contador + 1)
     const restar = () => setContador(contador - 1)
-    const { agregarAlCarrito } = useAppContext();
 
       console.log(id);
   
@@ -21,7 +20,6 @@ const ItemCount = ({stock, id}) => {
           </div>
           {contador === stock && <h4 className="sin-stock"> No hay más productos en stock</h4>}
         </div>
-        <button className="item-detail-button" onClick={()=> agregarAlCarrito(id,contador)}>Añadir al Carrito</button>
       </>
     )
 }
