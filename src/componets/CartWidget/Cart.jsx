@@ -1,11 +1,11 @@
 import React from 'react'
 import {Link }from 'react-router-dom'
 import { useAppContext } from "../Context/Context";
-import { useState } from 'react'
+//import { useState } from 'react'
 import "./Cart.css"
 
 const Cart = () => {
-  const { carrito, crearOrden,  quitarDelCarrito, vaciarCarrito } = useAppContext();
+  const { carrito, crearOrden,  quitarDelCarrito, vaciarCarrito, total } = useAppContext();
     
     const handleCarrito = () =>{
       crearOrden();
@@ -43,7 +43,7 @@ const Cart = () => {
           )
         })
       }   
-      <h4 className="total-compra">Total de la compra : 0</h4>
+      <h4 className="total-compra">Total de la compra : ${total}</h4>
       <div className='cart-footer'>
         <button className="fin-compra" onClick={()=> handleCarrito()}>Finalizar Compra</button>
         <button className="fin-compra" onClick={()=> vaciarCarrito()}>Vaciar Carrito</button>

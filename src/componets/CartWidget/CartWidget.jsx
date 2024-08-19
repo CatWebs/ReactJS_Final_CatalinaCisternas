@@ -4,12 +4,12 @@ import { useAppContext } from "../Context/Context";
 
 function CartWidget() {
 
-  const {carrito} = useAppContext();
+  const {cantidadTotalCarrito} = useAppContext();
   return (
     <>
-      <div className="carrito" onClick={()=>console.log("aqui esta el carrito",carrito)}>
+      <div className="carrito">
           <img src={carritoImg} className="img-carrito"/>
-          <span className="carrito-cantidad">{carrito.length}</span>
+          <span className="carrito-cantidad">{cantidadTotalCarrito}</span>
       </div>
     </>
   )

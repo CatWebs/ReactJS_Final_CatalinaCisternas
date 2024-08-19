@@ -40,8 +40,10 @@ const ordersCollection = collection(db, "ordenes")
     export const ContextProvider = (props) => {
         const [productos, setProductos] = useState([]);
         const [carrito, setCarrito] = useState([]);
+        const [total, setTotal] = useState(0);
+        const [cantidadTotalCarrito, setCantidadTotalCarrito] = useState(0);
 
-
+        // Cargar Data
         function cargarData() {
             getDocs(productsCollection).then(snapshot => {
                let arrayProductos = snapshot.docs.map(el => el.data());
@@ -49,30 +51,41 @@ const ordersCollection = collection(db, "ordenes")
             }).catch(err => console.error(err));
         };
 
-        
+        // Agregar producto al carrito
         function agregarAlCarrito(id,contador) {
             const carritoAuxiliar = [...carrito];
             const productoAAgregar = productos.find(el => el.id === id);
+            console.log(total, cantidadTotalCarrito)
             
-
+            // Filtrado
             if(carritoAuxiliar.some(el => el.id === id)){
                 console.log("hay una coincidencia") 
                 const productoAAumentar = carritoAuxiliar.find(el=>el.id === id)
                 productoAAumentar.cantidad += 1;
-                console.log("producto a aumentar"+productoAAumentar.cantidad)
+
+                setTotal(total + productoAAumentar.precio * productoAAumentar.cantidad);
+              
+                setCantidadTotalCarrito(cantidadTotalCarrito + productoAAumentar.cantidad);
+                
             }else{
                 productoAAgregar.cantidad = contador;
                 carritoAuxiliar.push(productoAAgregar);
+                setTotal(total + productoAAgregar.precio * productoAAgregar.cantidad);
+                
+                setCantidadTotalCarrito(cantidadTotalCarrito + productoAAgregar.cantidad);
+                
             }
+            // Agregado
             
-            console.log(carritoAuxiliar)
             setCarrito(carritoAuxiliar);
+
             Swal.fire({
                 title: "Éxito",
                 text: `Agregaste ${productoAAgregar.nombre} a tu carrito`,
                 icon: "success"
-            })
-            console.log(carrito)
+            });
+
+
         }
     
     // Crear Orden
@@ -83,6 +96,7 @@ const ordersCollection = collection(db, "ordenes")
                 telefono: 98712532,
                 mail: "cata@coder.com",
                 productos: carrito,
+                total: total
             };
 
             addDoc(ordersCollection, nuevaOrden).then(response => {
@@ -147,15 +161,9 @@ const ordersCollection = collection(db, "ordenes")
                 }
             });
         }
-
-    // Totales
-
-    //const [total, setTotal] = useState(0);
-    //const [totalProductos, setTotalProductos] = useState(0);
-
  
     return(
-        <AppContext.Provider value={{productos,setProductos,carrito,agregarAlCarrito, cargarData, crearOrden, quitarDelCarrito, vaciarCarrito}}> 
+        <AppContext.Provider value={{cantidadTotalCarrito,total, productos,setProductos,carrito,agregarAlCarrito, cargarData, crearOrden, quitarDelCarrito, vaciarCarrito}}> 
             {props.children}
         </AppContext.Provider>
     )

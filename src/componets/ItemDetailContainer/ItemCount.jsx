@@ -3,12 +3,9 @@ import React from 'react'
 
 
 const ItemCount = ({stock, id, contador, setContador}) => {
-  console.log(id)
     
     const sumar = () => setContador(contador + 1)
     const restar = () => setContador(contador - 1)
-
-      console.log(id);
   
     return (
       <>
