@@ -109,6 +109,8 @@ export const ContextProvider = (props) => {
                 text: `Tu orden se ha generado correctamente con el id ${response.id}`,
                 icon: "success"
             });
+            setTotal(0);
+            setCantidadTotalCarrito(0);
             setCarrito([]);
         }).catch(err => {
             alert("Algo salió mal, intente más tarde");
