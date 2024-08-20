@@ -58,6 +58,7 @@
     font-size: 18px;
     font-weight: bolder;
     border: none;
+    border-radius: 10px;
     background-color: #FAC8D0;
     padding: 15px 10px;
     cursor: pointer;

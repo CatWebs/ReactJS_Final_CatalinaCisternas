@@ -41,23 +41,29 @@ const Checkout = () => {
         document.getElementById("nombre").value = "";
         document.getElementById("telefono").value = "";
         document.getElementById("mail").value = "";
-        // Te queda como tarea poner como obligatorio que no se pueda hacer submit hasta que los 3 campos estén correctamente cargados
     };
 
     return (
-        <div>
-            <p>
-                Checkout, agregar estilos formulario y borrar esta etiqueta P
-            </p>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="nombre">Nombre completo:</label>
-                <input type="text" id="nombre" name="nombre" onChange={handleChange} />
-                <label htmlFor="telefono">Número de teléfono:</label>
-                <input type="number" id="telefono" name="telefono" onChange={handleChange} />
-                <label htmlFor="mail">Dirección de correo:</label>
-                <input type="text" id="mail" name="mail" onChange={handleChange} />
-                <input type="submit" value="Crear orden" />
-            </form>
+        <div className='container-formulario'>
+            <h1>
+                Completa tus datos para terminar con la compra!
+            </h1>
+            <div className='form'>
+                <form onSubmit={handleSubmit}>
+                    <label className="formLabel" htmlFor="nombre">Nombre completo:
+                        <input placeholder="Escribe tu nombre" className="formInput" type="text" id="nombre" name="nombre" onChange={handleChange} required />
+                    </label>
+                    
+                    <label className="formLabel" htmlFor="telefono">Número de teléfono:
+                        <input placeholder="912345678" className="formInput" type="tel" id="telefono" name="telefono" pattern="9[0-9]{8}" onChange={handleChange} required />
+                    </label>
+                    <label className="formLabel" htmlFor="mail">Dirección de correo:
+                        <input placeholder="Escribe tu email, ejemplo: nombre@email.com" className="formInput" type="text" id="mail" name="mail" onChange={handleChange} required />
+                    </label>
+                    <input className="botonSubmit" type="submit" value="Crear orden" />
+                </form>
+            </div>
+            <div className='banner'></div>
         </div>
     )
 }

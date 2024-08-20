@@ -1,7 +1,6 @@
 import React from 'react'
 import {Link }from 'react-router-dom'
 import { useAppContext } from "../Context/Context";
-import { useState } from 'react'
 import "./Cart.css"
 
 const Cart = () => {
@@ -9,18 +8,18 @@ const Cart = () => {
   
   return (
     <div className='container-carrito'>
+      <h1>Bienvenido a tu carrito de compras</h1>
       {
         ((carrito.length) !== 0) ?
           carrito.map((el)=> {
             return (
               <div className='producto-carrito' key={el.id}>
                 <img src={el.imagen}/>
-                <h4>{el.nombre}</h4>
-                {/*<button className="boton-accion" /*onClick={quitar}*/ /*disabled={el.cantidad < 2}>-</button>*/}
-                <h3>{el.cantidad}</h3>
-                {/*<button className="boton-accion" /*onClick={agregar}*/ /*disabled={el.cantidad === el.stock}>+</button>*/}
+                <h4>Producto: {el.nombre}</h4>
+                <h4>Cantidad: {el.cantidad}</h4>
                 <button className='boton-accion eliminar-producto-boton' onClick={() => quitarDelCarrito(el.id, el.precio, el.cantidad)}>Eliminar Producto</button>
-                <h4>${el.precio}</h4>
+                <h4>Precio: ${el.precio}</h4>
+                <h4>Total Item: ${el.cantidad*el.precio}</h4>
               </div>
             )
           })
@@ -34,13 +33,12 @@ const Cart = () => {
         }   
         <h4 className="total-compra" hidden={carrito.length === 0}>Total de la compra : ${total}</h4>
         <div className='cart-footer'>
-          <Link to="/checkout">
-            <button className="fin-compra" hidden={carrito.length === 0}>
+          <Link to="/checkout" className="fin-compra" hidden={carrito.length === 0}>
               Finalizar Compra
-            </button>
           </Link>
           <button className="fin-compra" onClick={() => vaciarCarrito()} hidden={carrito.length === 0}>Vaciar Carrito</button>
-        </div>    
+        </div>   
+        <div className='banner'></div> 
       </div>
     )
   }

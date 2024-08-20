@@ -2,7 +2,7 @@ import React from 'react'
 //import { useState } from 'react'
 
 
-const ItemCount = ({stock, contador, setContador}) => {
+const ItemCount = ({ contador, setContador}) => {
     
     const sumar = () => setContador(contador + 1)
     const restar = () => setContador(contador - 1)
@@ -13,9 +13,8 @@ const ItemCount = ({stock, contador, setContador}) => {
           <div className='botones-accion'>
             <button className="boton-accion" onClick={restar} disabled={contador < 2}>-</button>
             <h3>{contador}</h3>
-            <button className="boton-accion" onClick={sumar} disabled={contador === stock}>+</button>
+            <button className="boton-accion" onClick={sumar} disabled={contador === 100}>+</button>
           </div>
-          {contador === stock && <h4 className="sin-stock"> No hay más productos en stock</h4>}
         </div>
       </>
     )

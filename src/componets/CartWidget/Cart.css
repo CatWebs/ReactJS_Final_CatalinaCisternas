@@ -6,6 +6,13 @@
     padding: 20px;
 }
 
+.container-carrito h1{
+    text-align: center;
+    text-shadow: 3px 3px 1px #FAC8D0;
+    text-transform: uppercase;
+    margin: 30px auto;
+}
+
 .titulo-carrito-vacio{
     text-align: center;
     font-size: 32px;
@@ -45,6 +52,7 @@
     border-color: transparent;
     margin: 30px auto;
     width: 300px;
+    color: #000;
 }
 
 .total-compra{
@@ -62,9 +70,17 @@
     color: red;
 }
 
+.eliminar-producto-boton:hover{
+    cursor: pointer;
+}
+
 .cart-footer{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-wrap: wrap;
     margin-top: 20px;
+}
+
+.cart-footer a{
+    text-decoration: none;
 }

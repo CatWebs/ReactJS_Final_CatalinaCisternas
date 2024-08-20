@@ -82,6 +82,7 @@
 
 .boton-accion:hover{
     border-color: #FAC8D0;
+    cursor: pointer;
 }
 
 .sin-stock{
