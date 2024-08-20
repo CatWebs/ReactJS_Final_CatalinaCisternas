@@ -10,10 +10,10 @@ function Navbar() {
             <Link to={"/"} className="navbar-item">
                 Inicio
             </Link>
-            <Link to={"/algodon"} className="navbar-item">
+            <Link to={"/productos/algodon"} className="navbar-item">
                 Algodón
             </Link>
-            <Link to={"/acrilico"} className="navbar-item">
+            <Link to={"/productos/acrilico"} className="navbar-item">
                 Acrílico
             </Link>
         </ul>
